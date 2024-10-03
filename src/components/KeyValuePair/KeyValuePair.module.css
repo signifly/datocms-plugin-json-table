@@ -8,4 +8,16 @@
   width: 100%;
   max-width: 40%;
   margin-right: var(--spacing-m);
+  position: relative;
+  padding-left: 20px;
+}
+
+.colorTile {
+  position: absolute;
+  left: 0px;
+  width: 9px;
+  height: 100%;
+  display: block;
+  margin-right: var(--spacing-s);
+  border: 1px solid #ccc;
 }

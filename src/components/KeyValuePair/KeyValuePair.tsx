@@ -1,6 +1,7 @@
-import { useState, MouseEvent } from 'react'
-import { Button, TextField, FieldGroup } from 'datocms-react-ui'
 import * as styles from './KeyValuePair.module.css'
+
+import { Button, FieldGroup, TextField } from 'datocms-react-ui'
+import { MouseEvent, useState } from 'react'
 
 type Props = {
   id: string
@@ -67,20 +68,28 @@ export default function KeyValuePair({
       </FieldGroup>
 
       <FieldGroup className={styles.fieldGroup}>
-        <TextField
-          required={isRequired}
-          error={isRequired && inputValue === '' ? 'Value is required' : ''}
-          name={`${id}-value`}
-          id={`${id}-value`}
-          label="Change value of the key"
-          value={inputValue}
-          onChange={handleValueChange}
-          formLabelProps={{
-            children: <></>,
-            htmlFor: `${id}-value`,
-            className: 'sr-only',
-          }}
-        />
+        <>
+          <div
+            className={styles.colorTile}
+            style={{
+              backgroundColor: `${inputValue}`,
+            }}
+          ></div>
+          <TextField
+            required={isRequired}
+            error={isRequired && inputValue === '' ? 'Value is required' : ''}
+            name={`${id}-value`}
+            id={`${id}-value`}
+            label="Change value of the key"
+            value={inputValue}
+            onChange={handleValueChange}
+            formLabelProps={{
+              children: <></>,
+              htmlFor: `${id}-value`,
+              className: 'sr-only',
+            }}
+          />
+        </>
       </FieldGroup>
 
       {!inputIsDisabled && (
